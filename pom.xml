@@ -23,6 +23,7 @@
     </developers>
     <modules>
         <module>example-1-chat</module>
+        <module>ai-common</module>
     </modules>
     <scm>
         <connection/>
