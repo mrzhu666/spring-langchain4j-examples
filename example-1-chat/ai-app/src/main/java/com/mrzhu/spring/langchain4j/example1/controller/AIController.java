@@ -1,5 +1,6 @@
 package com.mrzhu.spring.langchain4j.example1.controller;
 
+import com.mrzhu.spring.langchain4j.example1.aiservice.AiCodeHelperService;
 import com.mrzhu.spring.langchain4j.example1.aiservice.Assistant;
 import com.mrzhu.spring.langchain4j.example1.aiservice.StreamingAssistant;
 import io.swagger.v3.oas.annotations.Operation;
@@ -22,8 +23,21 @@ public class AIController {
     @Resource
     StreamingAssistant streamingAssistant;
     
+    @Resource
+    AiCodeHelperService aiCodeHelperService;
+    
+    
+    @Operation(summary = "编程领域助手")
+    @GetMapping("/aiCodeHelper")
+    public String aiCodeHelper(
+        @RequestParam(value = "message", defaultValue = "如何学习Java") String message) {
+        return aiCodeHelperService.chat(message);
+    }
+    
+    
     /**
      * 请求当前时间时，会调用工具
+     *
      * @param message 默认请求当前时间
      * @return
      */
@@ -35,6 +49,7 @@ public class AIController {
     
     /**
      * 请求当前时间时，会调用工具
+     *
      * @param message 默认请求当前时间
      * @return
      */

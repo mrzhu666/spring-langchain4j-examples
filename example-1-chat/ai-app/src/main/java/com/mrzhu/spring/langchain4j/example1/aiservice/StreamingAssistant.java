@@ -6,6 +6,9 @@ import reactor.core.publisher.Flux;
 
 @AiService
 public interface StreamingAssistant {
+    /**
+     * 相比 {@link Assistant} 使用了流式接口
+     */
     @SystemMessage("You are a polite assistant")
     Flux<String> chat(String userMessage);
 }

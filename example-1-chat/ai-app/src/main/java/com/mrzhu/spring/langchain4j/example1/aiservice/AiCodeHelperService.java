@@ -4,10 +4,10 @@ import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.spring.AiService;
 
 @AiService
-public interface Assistant {
+public interface AiCodeHelperService {
     /**
-     * 硬编码提示词
+     * 外部文件提示词
      */
-    @SystemMessage("You are a polite assistant")
+    @SystemMessage(fromResource = "prompt/aicodehelper-system-prompt.txt")
     String chat(String userMessage);
 }
