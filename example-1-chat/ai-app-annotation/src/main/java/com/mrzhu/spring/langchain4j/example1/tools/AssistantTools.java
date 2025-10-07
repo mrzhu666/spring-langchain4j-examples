@@ -1,6 +1,7 @@
 package com.mrzhu.spring.langchain4j.example1.tools;
 
 import dev.langchain4j.agent.tool.Tool;
+import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import io.micrometer.observation.annotation.Observed;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +19,7 @@ public class AssistantTools {
     @Tool
     @Observed
     public String currentTime() {
+        
         return LocalTime.now().toString();
     }
 }

@@ -12,7 +12,7 @@
     <artifactId>example-1-chat</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>ai-app</module>
+        <module>ai-app-annotation</module>
     </modules>
 
     <properties>
