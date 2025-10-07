@@ -6,6 +6,8 @@ import com.mrzhu.spring.langchain4j.common.ResultUtils;
 import com.mrzhu.spring.langchain4j.example1.aiservice.AiCodeHelperService;
 import com.mrzhu.spring.langchain4j.example1.aiservice.Assistant;
 import com.mrzhu.spring.langchain4j.example1.aiservice.StreamingAssistant;
+import com.mrzhu.spring.langchain4j.example1.aiservice.StructuredAssistant;
+import com.mrzhu.spring.langchain4j.example1.aiservice.pojo.Report;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
@@ -33,6 +35,16 @@ public class AIController {
     @Resource
     AiCodeHelperService aiCodeHelperService;
     
+    @Resource
+    StructuredAssistant structuredAssistant;
+    
+    @Operation(summary = "获取学习建议")
+    @GetMapping("/suggestion")
+    public BaseResponse<Report> getSuggestion(
+        @RequestParam(value = "message", defaultValue = "你好，我是程序员Y，如何学习Java") String message
+    ){
+        return ResultUtils.success(structuredAssistant.getSuggestion(message));
+    }
     
     @Operation(summary = "编程领域助手")
     @GetMapping("/aiCodeHelper")
