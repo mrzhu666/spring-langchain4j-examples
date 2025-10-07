@@ -1,16 +1,13 @@
 package com.mrzhu.spring.langchain4j.example1.aiservice;
 
 import com.mrzhu.spring.langchain4j.example1.config.ChatModelConfig;
+import com.mrzhu.spring.langchain4j.example1.config.QwenChatModelConfig;
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.spring.AiService;
 import dev.langchain4j.service.spring.AiServiceWiringMode;
-import reactor.core.publisher.Flux;
 
-@AiService(wiringMode = AiServiceWiringMode.EXPLICIT, chatModel = ChatModelConfig.defaultChatModelName)
-public interface StreamingAssistant {
-    /**
-     * 相比 {@link Assistant} 使用了流式接口
-     */
+@AiService(wiringMode = AiServiceWiringMode.EXPLICIT, chatModel = QwenChatModelConfig.chatModelName)
+public interface QwenAssistant {
     @SystemMessage("You are a polite assistant")
-    Flux<String> chat(String userMessage);
+    String chat(String userMessage);
 }

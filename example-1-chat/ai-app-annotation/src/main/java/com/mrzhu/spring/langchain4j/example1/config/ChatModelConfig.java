@@ -9,6 +9,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ChatModelConfig {
     
+    public final static String defaultChatModelName = "openAiChatModel";
+    
+    
     /**
      * @return 对话记忆
      */

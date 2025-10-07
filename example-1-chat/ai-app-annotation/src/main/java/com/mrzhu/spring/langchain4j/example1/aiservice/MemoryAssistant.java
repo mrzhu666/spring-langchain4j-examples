@@ -1,11 +1,13 @@
 package com.mrzhu.spring.langchain4j.example1.aiservice;
 
+import com.mrzhu.spring.langchain4j.example1.config.ChatModelConfig;
 import dev.langchain4j.service.MemoryId;
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.UserMessage;
 import dev.langchain4j.service.spring.AiService;
+import dev.langchain4j.service.spring.AiServiceWiringMode;
 
-@AiService
+@AiService(wiringMode = AiServiceWiringMode.EXPLICIT, chatModel = ChatModelConfig.defaultChatModelName)
 public interface MemoryAssistant {
     
     /**
