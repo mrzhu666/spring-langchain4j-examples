@@ -1,6 +1,7 @@
 package com.mrzhu.spring.langchain4j.example1;
 
 import com.mrzhu.spring.langchain4j.example1.aiservice.Assistant;
+import com.mrzhu.spring.langchain4j.example1.aiservice.DeepSeekAssistant;
 import com.mrzhu.spring.langchain4j.example1.aiservice.MemoryAssistant;
 import com.mrzhu.spring.langchain4j.example1.aiservice.QwenAssistant;
 import com.mrzhu.spring.langchain4j.example1.config.MyChatModelListener;
@@ -22,6 +23,9 @@ public class LLMTest {
     @Resource
     QwenAssistant qwenAssistant;
     
+    @Resource
+    DeepSeekAssistant deepSeekAssistant;
+    
     /**
      * 测试同时使用不同大模型
      */
@@ -32,6 +36,9 @@ public class LLMTest {
         
         String chat1 = qwenAssistant.chat("请问你使用的是什么大模型?");
         System.out.println(chat1);
+        
+        String chat2 = deepSeekAssistant.chat("请问你使用的是什么大模型?");
+        System.out.println(chat2);
     }
     
 }

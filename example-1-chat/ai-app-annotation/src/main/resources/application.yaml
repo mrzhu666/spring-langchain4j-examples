@@ -23,3 +23,9 @@ langchain4j:
       max-tokens: 100
       log-requests: true
       log-responses: true
+    deepseek-chat-model:
+      base-url: https://api.chatanywhere.tech
+      model-name: deepseek-r1
+      max-tokens: 100
+      log-requests: true
+      log-responses: true
