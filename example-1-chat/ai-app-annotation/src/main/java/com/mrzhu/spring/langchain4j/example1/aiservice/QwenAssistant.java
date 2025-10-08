@@ -1,7 +1,6 @@
 package com.mrzhu.spring.langchain4j.example1.aiservice;
 
-import com.mrzhu.spring.langchain4j.example1.config.ChatModelConfig;
-import com.mrzhu.spring.langchain4j.example1.config.QwenChatModelConfig;
+import com.mrzhu.spring.langchain4j.example1.config.chatmodel.QwenChatModelConfig;
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.spring.AiService;
 import dev.langchain4j.service.spring.AiServiceWiringMode;

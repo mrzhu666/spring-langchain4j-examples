@@ -3,7 +3,7 @@ package com.mrzhu.spring.langchain4j.example1.aiservice;
 
 import com.mrzhu.spring.langchain4j.example1.aiservice.pojo.Person;
 import com.mrzhu.spring.langchain4j.example1.aiservice.pojo.Report;
-import com.mrzhu.spring.langchain4j.example1.config.ChatModelConfig;
+import com.mrzhu.spring.langchain4j.example1.config.chatmodel.ChatModelConfig;
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.UserMessage;
 import dev.langchain4j.service.spring.AiService;

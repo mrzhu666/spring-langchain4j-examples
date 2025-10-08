@@ -1,4 +1,4 @@
-package com.mrzhu.spring.langchain4j.example1.config;
+package com.mrzhu.spring.langchain4j.example1.config.chatmodel;
 
 import dev.langchain4j.model.chat.listener.ChatModelErrorContext;
 import dev.langchain4j.model.chat.listener.ChatModelListener;

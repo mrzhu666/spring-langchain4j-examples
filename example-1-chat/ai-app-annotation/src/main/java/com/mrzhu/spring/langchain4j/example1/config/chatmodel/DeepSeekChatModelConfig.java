@@ -1,4 +1,4 @@
-package com.mrzhu.spring.langchain4j.example1.config;
+package com.mrzhu.spring.langchain4j.example1.config.chatmodel;
 
 
 import dev.langchain4j.model.chat.ChatModel;
@@ -13,11 +13,11 @@ import org.springframework.context.annotation.Scope;
  * 创建不同的大模型
  */
 @Configuration
-@ConfigurationProperties(prefix = "langchain4j.open-ai.qwen-chat-model")
+@ConfigurationProperties(prefix = "langchain4j.open-ai.deepseek-chat-model")
 @Data
-public class QwenChatModelConfig {
+public class DeepSeekChatModelConfig {
     
-    public final static String chatModelName = "qwenChatModel";
+    public final static String chatModelName = "deepSeekChatModel";
     
     private String baseUrl;
     

@@ -2,7 +2,7 @@ package com.mrzhu.spring.langchain4j.example1;
 
 import com.mrzhu.spring.langchain4j.example1.aiservice.StructuredAssistant;
 import com.mrzhu.spring.langchain4j.example1.aiservice.pojo.Person;
-import com.mrzhu.spring.langchain4j.example1.config.MyChatModelListener;
+import com.mrzhu.spring.langchain4j.example1.config.chatmodel.MyChatModelListener;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

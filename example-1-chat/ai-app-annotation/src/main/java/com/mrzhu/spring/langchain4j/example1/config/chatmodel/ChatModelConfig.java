@@ -1,10 +1,15 @@
-package com.mrzhu.spring.langchain4j.example1.config;
+package com.mrzhu.spring.langchain4j.example1.config.chatmodel;
 
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.ChatMemoryProvider;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
+import dev.langchain4j.model.chat.ChatModel;
+import dev.langchain4j.model.openai.OpenAiChatModel;
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 @Configuration
 public class ChatModelConfig {
@@ -27,4 +32,5 @@ public class ChatModelConfig {
     ChatMemoryProvider chatMemoryProvider() {
         return memoryId -> MessageWindowChatMemory.withMaxMessages(10);
     }
+    
 }

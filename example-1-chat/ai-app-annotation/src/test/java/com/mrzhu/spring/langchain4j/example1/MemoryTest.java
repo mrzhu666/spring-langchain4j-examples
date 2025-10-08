@@ -1,7 +1,7 @@
 package com.mrzhu.spring.langchain4j.example1;
 
 import com.mrzhu.spring.langchain4j.example1.aiservice.MemoryAssistant;
-import com.mrzhu.spring.langchain4j.example1.config.MyChatModelListener;
+import com.mrzhu.spring.langchain4j.example1.config.chatmodel.MyChatModelListener;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

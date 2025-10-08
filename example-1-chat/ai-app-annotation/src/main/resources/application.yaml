@@ -29,3 +29,9 @@ langchain4j:
       max-tokens: 100
       log-requests: true
       log-responses: true
+    gemini-chat-model:
+      base-url: https://generativelanguage.googleapis.com/v1beta
+      model-name: gemini-2.5-pro
+      max-tokens: 100
+      log-requests: true
+      log-responses: true

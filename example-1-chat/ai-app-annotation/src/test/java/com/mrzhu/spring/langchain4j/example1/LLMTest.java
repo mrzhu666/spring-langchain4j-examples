@@ -2,9 +2,9 @@ package com.mrzhu.spring.langchain4j.example1;
 
 import com.mrzhu.spring.langchain4j.example1.aiservice.Assistant;
 import com.mrzhu.spring.langchain4j.example1.aiservice.DeepSeekAssistant;
-import com.mrzhu.spring.langchain4j.example1.aiservice.MemoryAssistant;
+import com.mrzhu.spring.langchain4j.example1.aiservice.GeminiAssistant;
 import com.mrzhu.spring.langchain4j.example1.aiservice.QwenAssistant;
-import com.mrzhu.spring.langchain4j.example1.config.MyChatModelListener;
+import com.mrzhu.spring.langchain4j.example1.config.chatmodel.MyChatModelListener;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,6 +26,9 @@ public class LLMTest {
     @Resource
     DeepSeekAssistant deepSeekAssistant;
     
+    @Resource
+    GeminiAssistant geminiAssistant;
+    
     /**
      * 测试同时使用不同大模型
      */
@@ -33,12 +36,15 @@ public class LLMTest {
     public void test(){
         String chat = assistant.chat("请问你使用的是什么大模型?");
         System.out.println(chat);
-        
+
         String chat1 = qwenAssistant.chat("请问你使用的是什么大模型?");
         System.out.println(chat1);
-        
+
         String chat2 = deepSeekAssistant.chat("请问你使用的是什么大模型?");
         System.out.println(chat2);
+        
+        //String chat3 = geminiAssistant.chat("请问你使用的是什么大模型?");
+        //System.out.println(chat3);
     }
     
 }
