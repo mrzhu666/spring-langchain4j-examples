@@ -24,6 +24,7 @@
     <modules>
         <module>example-1-chat</module>
         <module>ai-common</module>
+        <module>example-2-user</module>
     </modules>
     <scm>
         <connection/>
