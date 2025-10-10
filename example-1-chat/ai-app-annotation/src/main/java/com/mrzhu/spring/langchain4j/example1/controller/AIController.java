@@ -8,6 +8,7 @@ import com.mrzhu.spring.langchain4j.example1.aiservice.Assistant;
 import com.mrzhu.spring.langchain4j.example1.aiservice.StreamingAssistant;
 import com.mrzhu.spring.langchain4j.example1.aiservice.StructuredAssistant;
 import com.mrzhu.spring.langchain4j.example1.aiservice.pojo.Report;
+import dev.langchain4j.service.TokenStream;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
@@ -29,8 +30,7 @@ public class AIController {
     @Resource
     Assistant assistant;
     
-    @Resource
-    StreamingAssistant streamingAssistant;
+
     
     @Resource
     AiCodeHelperService aiCodeHelperService;
@@ -65,49 +65,6 @@ public class AIController {
     public BaseResponse<String> assistant(@RequestParam(value = "message", defaultValue = "What is the current time?") String message) {
         return ResultUtils.success(assistant.chat(message));
     }
-    
-    /**
-     * 请求当前时间时，会调用工具
-     *
-     * @param message 默认请求当前时间
-     * @return
-     */
-    @Operation(summary = "默认会请求当前时间（流式接口）")
-    @GetMapping(value = "/streamingAssistant", produces = TEXT_EVENT_STREAM_VALUE)
-    public Flux<String> streamingAssistant(
-        @RequestParam(value = "message", defaultValue = "What is the current time?") String message) {
-        return streamingAssistant.chat(message);
-    }
-    
-    /**
-     * 请求当前时间时，会调用工具
-     *
-     * @param message 默认请求当前时间
-     * @return
-     */
-    @Operation(summary = "默认会请求当前时间（流式接口），采用事件")
-    @GetMapping(value = "/streamingSSEAssistant", produces = TEXT_EVENT_STREAM_VALUE)
-    public Flux<ServerSentEvent<String>> streamingSSEAssistant(
-        @RequestParam(value = "message", defaultValue = "What is the current time?") String message) {
-        
-        // 调用服务生成代码（SSE 流式返回）
-        Flux<String> contentFlux = streamingAssistant.chat(message);
-        return contentFlux
-            .map(chunk -> {
-                Map<String, String> wrapper = Map.of("d", chunk);
-                String jsonData = JSONUtil.toJsonStr(wrapper);
-                return ServerSentEvent.<String>builder()
-                    .data(jsonData)
-                    .build();
-            })
-            .concatWith(Mono.just(
-                // 发送结束事件
-                ServerSentEvent.<String>builder()
-                    .event("done")
-                    .data("")
-                    .build()
-            ));
-        
-    }
+
     
 }

@@ -14,7 +14,11 @@ import org.springframework.context.annotation.Scope;
 @Configuration
 public class ChatModelConfig {
     
+    // langchain4j框架默认创建的ChatModel名字
     public final static String defaultChatModelName = "openAiChatModel";
+    
+    // langchain4j框架默认创建的StreamingChatModel名字
+    public final static String defaultStreamingChatModelName = "openAiStreamingChatModel";
     
     
     /**

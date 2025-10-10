@@ -1,17 +1,27 @@
 package com.mrzhu.spring.langchain4j.example1;
 
+import dev.langchain4j.model.chat.ChatModel;
+import dev.langchain4j.model.chat.StreamingChatModel;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Map;
 
 @Slf4j
 @SpringBootApplication
-public class AIApplication {
+public class AIApplication implements CommandLineRunner {
+    
+    @Resource
+    private ApplicationContext applicationContext;
+    
     public static void main(String[] args) throws UnknownHostException {
         //SpringApplication.run(AIApplication.class, args);
         SpringApplication app=new SpringApplication(AIApplication.class);
@@ -30,5 +40,15 @@ public class AIApplication {
             env.getProperty("server.port"),
             InetAddress.getLocalHost().getHostAddress(),
             env.getProperty("server.port"));
+    }
+    
+    @Override
+    public void run(String... args) throws Exception {
+        Map<String, ChatModel> beansOfType = applicationContext.getBeansOfType(ChatModel.class);
+        log.info("ChatModel的Bean有："+beansOfType.toString());
+        
+        Map<String, StreamingChatModel> beansOfType1 = applicationContext.getBeansOfType(StreamingChatModel.class);
+        log.info("StreamingChatModel的Bean有："+beansOfType1.toString());
+        
     }
 }
