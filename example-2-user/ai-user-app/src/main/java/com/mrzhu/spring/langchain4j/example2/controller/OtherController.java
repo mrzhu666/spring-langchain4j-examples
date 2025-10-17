@@ -1,4 +1,4 @@
-package com.mrzhu.spring.langchain4j.example1.controller;
+package com.mrzhu.spring.langchain4j.example2.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
