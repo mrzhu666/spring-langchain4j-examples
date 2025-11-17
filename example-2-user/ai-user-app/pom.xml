@@ -18,10 +18,17 @@
     </properties>
 
     <dependencies>
+        <!--通用组件-->
         <dependency>
             <groupId>com.mrzhu</groupId>
             <artifactId>ai-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!--Caffeine依赖-->
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
         </dependency>
 
         <!--langchain4j依赖-->
